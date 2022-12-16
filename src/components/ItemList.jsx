@@ -1,8 +1,8 @@
 import { useContext, useState, useEffect } from 'react';
 import Item from './Item';
-import { SettingsContext } from './../context/settings';
+import { SettingsContext } from '../context/setting.js';
 import Pagination from './Pagination.jsx'
-import sortAndFilter from './../lib/sorting';
+import sortAndFilter from '../lib/sorting.js';
 
 function ItemList({ list, setList }) {
 

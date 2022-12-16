@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import Header from './Header';
-import ItemForm from './ItemForm';
-import ItemList from './ItemList';
-import Nav from './Nav';
-
-import './../styles/todo.css';
+import React, { useEffect, useState, useContext } from 'react';
+import Header from './Header.jsx';
+import ItemForm from './ItemForm.jsx';
+import ItemList from './ItemList.jsx';
+import Nav from './Nav.jsx';
+import '../styles/todo.css';
 
 const ToDo = () => {
 

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import {SettingsContext} from './../context/settings';
-import './../styles/Pagination.css';
+import {SettingsContext} from '../context/setting.js';
+import '../styles/Pagination.css';
 
 function Pagination({ setCurrentPage, listLength }) {
   const context = useContext(SettingsContext);

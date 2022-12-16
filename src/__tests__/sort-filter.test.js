@@ -1,6 +1,6 @@
 'use strict';
 
-import sortAndFilter from './../lib/sorting';
+import sortAndFilter from '../lib/sorting.js';
 
 const testList = [
   {
@@ -179,4 +179,3 @@ describe('Test the filter and sorting of list items', () => {
   });
 
 });
-

@@ -1,7 +1,7 @@
 'use strict';
 
-import SettingsProvider from '../context/settings';
-import SettingsForm from '../components/SettingsForm';
+import SettingsProvider from '../context/setting.js';
+import SettingsForm from '../components/SettingsForm.jsx';
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 
@@ -27,4 +27,3 @@ describe('Test the item list component', () => {
 
 
 });
-
