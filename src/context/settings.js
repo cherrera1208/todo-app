@@ -1,42 +1,40 @@
 import { useState, createContext, useEffect } from 'react';
 
-// context is Created!
 export const SettingsContext = createContext();
 
-// create our Provider that grants Child Consumers access to values
-function SettingsProvider(props) { // we need this, app tells us what children we need to render!
+function SettingsProvider(props) {
+  const [ showCompleted, setShowCompleted ] = useState(true);
+  const [ numberOfItems, setNumberOfItems ] = useState(3);
+  const [ sortBy, setSortBy ] = useState('added');
 
-  // context values to share with children
-  let [pagination, setPagination] = useState(3);
-  let [sort, setSort] = useState('');
-  let [display, setDisplay] = useState(false);
-  let [error, setError] = useState(null);
-
-  const updatePagination = (value) => {
-    if (parseInt(value)) { // we know that value is an integer if truthy
-      setPagination(value);
-      setError(null);
-      localStorage.setItem('settings', JSON.stringify({ pagination, sort, display }));
-    } else {
-      // alert('Please set pagination to a number');
-      setError('Please set pagination to a number');
-    }
-  }
-
-  // when component mounts, load our settings from localStorage
+  // on Component Mount -> load settings from localstorage
   useEffect(() => {
-    let savedSettings = localStorage.getItem('settings');
-    // set them back into context values.
-    let storedSettings = JSON.parse(savedSettings);
-    if (storedSettings) {
-      setPagination(storedSettings.pagination);
-      setSort(storedSettings.sort);
-      setDisplay(storedSettings.display);
+    const storage = localStorage.getItem('settings');
+    if(storage) {
+      const storageObject = JSON.parse(storage);
+      setShowCompleted(storageObject.showCompleted);
+      setNumberOfItems(storageObject.numberOfItems);
+      setSortBy(storageObject.sortBy);
     }
   }, []);
 
+  // const setSort = (value) => {
+  //   switch(value) {
+  //     case 'added':
+  //     case 'difficulty':
+  //     default:
+  //       alert('Invalid value');
+  //   }
+  // }
+
   return (
-    <SettingsContext.Provider value={{ pagination, sort, display, updatePagination, settingsError: error, setError }}>
+    <SettingsContext.Provider
+      value = {{
+        showCompleted, setShowCompleted,
+        numberOfItems, setNumberOfItems,
+        sortBy, setSortBy
+      }}
+    >
       {props.children}
     </SettingsContext.Provider>
   )

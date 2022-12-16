@@ -106,8 +106,7 @@ In Phase 1, we’re going to perform some refactoring of the To Do application a
 
 ![To Do with Pagination](/code-401-javascript-guide/curriculum/class-31/lab/todo.png)
 
-Technical Requirements / Notes
-------------------------------
+## Technical Requirements / Notes
 
 > Create a settings Context that can define how our components should display elements to the User.
 
@@ -128,3 +127,7 @@ Technical Requirements / Notes
 * Only display the first `n` items in the list, where `n` is the number to display per screen in your context.
   * If you have more than `n` items in the list, add a button labeled `Next` that will replace the list with the next `n` items in the list.
   * If you are past the first `n` items (i.e. on page 2 or higher), add a button labeled `Previous` that will replace the list with the previous `n` items in the list.
+
+## Contributions
+
+Jacob Knaack and Code Fellows staff
