@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from '@blueprintjs/core';
-import './../styles/card.css';
+import '../styles/card.css';
 
 function Item({ item, toggleComplete, deleteItem }) {
   return (
@@ -17,9 +17,6 @@ function Item({ item, toggleComplete, deleteItem }) {
       <hr />
       <p>{item.text}</p>
       <p><small>Difficulty: {item.difficulty}</small></p>
-
-
-
     </Card>
   )
 }

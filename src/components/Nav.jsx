@@ -1,6 +1,6 @@
 import { Navbar, Button } from "@blueprintjs/core";
 import { useState } from 'react';
-import SettingsForm from './SettingsForm';
+import SettingsForm from './SettingsForm.jsx';
 
 function Nav() {
   const [showForm, setShowForm] = useState(false);

@@ -1,49 +1,29 @@
 'use strict';
 
-import "@testing-library/jest-dom";
-import { render, screen, fireEvent } from "@testing-library/react";
-import App from './../app';
+import SettingsProvider from '../context/setting.js';
+import SettingsForm from '../components/SettingsForm.jsx';
+import '@testing-library/jest-dom';
+import { render, screen, fireEvent } from '@testing-library/react';
 
-describe('Testing item list functions', () => {
+describe('Test the item list component', () => {
+  test('Test show complete', () => {
+    render(
+      <SettingsProvider>
+        <SettingsForm />
+      </SettingsProvider>
+    )
 
-  test('Should be able to add item to list', () => {
+    const storeSettings = jest.spyOn(window.localStorage.__proto__, 'setItem').mockImplementation();
 
-    render( <App />);
+    const showCompleted = screen.getByTestId('show-completed');
+    fireEvent.click(showCompleted);
+    expect(storeSettings).toHaveBeenCalled();
 
-    const addButton = screen.getByTestId('add-button');
-    fireEvent.click(addButton);
+    // const increment = screen.getByRole('increment');
+    // console.log(increment);
 
-    const list = screen.getByTestId('item-list');
-    expect(list).toBeVisible();
-  });
+    // const select = getByRole('')
+  })
 
-  test('Should be able to change the status of the item', () => {
 
-    render( <App />);
-
-    const addButton = screen.getByTestId('add-button');
-    fireEvent.click(addButton);
-
-    const changeStatusButton = screen.getByText('Complete: false');
-    fireEvent.click(changeStatusButton);
-    
-    const newStatus = screen.getByText('Complete: true');
-  });
-
-  test('Should be able to delete an item', () => {
-    render( <App />);
-
-    const addButton = screen.getByTestId('add-button');
-    fireEvent.click(addButton);
-
-    const list = screen.getByTestId('item-list');
-    expect(list).toBeVisible();
-
-    const deleteButton = screen.getByText('Delete Item');
-    fireEvent.click(deleteButton);
-
-    expect(deleteButton).not.toBeVisible();
-    
-  });
 });
-

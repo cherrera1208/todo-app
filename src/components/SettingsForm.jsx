@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { SettingsContext } from '../context/settings';
+import { SettingsContext } from '../context/setting.js';
 import { FormGroup, Label, NumericInput, Switch, Button } from '@blueprintjs/core'
 
 function SettingsForm({ setShowForm }) {
